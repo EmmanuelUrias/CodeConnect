@@ -20,9 +20,21 @@ export const register = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, salt)
 
         const newUser = new User({
-            
+            firstname, 
+            lastName,
+            email,
+            password: passwordHash,
+            picturePath,
+            friends,
+            location,
+            occupation,
+            viewedProfile: Math.floor(Math.random() * 1000),
+            impressions: Math.floor(Math.random() * 1000)
         })
-    } catch (err) {
 
+        const savedUser = await newUser.save()
+        res.status(201).json(savedUser)
+    } catch (err) {
+        res.status(500).json({ error: err.message })
     }
 }
