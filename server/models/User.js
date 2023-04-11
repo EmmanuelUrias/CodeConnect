@@ -4,12 +4,14 @@ const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
+        unique: false,
         min: 2,
         max: 50
     },
     lastName: {
         type: String,
         required: true,
+        unique: false,
         max: 50,
         unique: true
     },
@@ -26,11 +28,13 @@ const UserSchema = new mongoose.Schema({
     },
     picturePath: {
         type: String,
-        default: ''
+        default: '',
+        unique: false,
     },
     friends: {
         type: Array,
-        default: []
+        default: [],
+        unique: false,
     },
     location: String,
     occupation: String,

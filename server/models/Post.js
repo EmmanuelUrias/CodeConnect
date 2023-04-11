@@ -7,11 +7,13 @@ const postSchema = mongoose.Schema({
     },
     firstName: {
         type: String,
-        required: true
+        required: true,
+        unique: false
     },
     lastName: {
         type: String,
-        required: true
+        required: true,
+        unique: false
     },
     location: String,
     description: String,
@@ -22,7 +24,7 @@ const postSchema = mongoose.Schema({
         of: Boolean
     },
     comments: {
-        types: Array,
+        type: Array,
         default: []
     }
 }, { timestamps: true })
