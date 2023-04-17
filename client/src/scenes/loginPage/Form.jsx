@@ -25,3 +25,34 @@ const registerSchema = yup.object().shape({
     occupation: yup.string().required('required'),
     picture: yup.string().required('required')
 })
+
+const loginSchema = yup.object().shape({
+    email: yup.string().email('Invalid email').required('required'),
+    password: yup.string().required('required')
+})
+
+const initialValuesRegister = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    location: '',
+    occupation: '',
+    picture: ''
+}
+
+const initialValuesLogin = {
+    email: '',
+    password: ''
+}
+
+const Form = () => {
+    const [pageType, setPageType] = useState('login')
+    const { palette } = useTheme()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const isNonMobile = useMediaQuery('(min-width:600px)')
+    const isLogin = pageType === 'login'
+}
+
+export default Form
