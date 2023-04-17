@@ -34,7 +34,7 @@ export const colorTokens = {
     return {
         palette: {
             mode: mode, 
-            ...(mode === 'dark') ? {
+            ...(mode === 'dark' ? {
             //dark mode color palette
             primary: {
                 dark: colorTokens.primary[200],
@@ -70,7 +70,7 @@ export const colorTokens = {
                 default: colorTokens.grey[10],
                 alt: colorTokens.grey[0]
             }
-        }
+        })
     },
     typography: {
         fontFamily: ['Rubik', 'sans-serif'].join(','),
