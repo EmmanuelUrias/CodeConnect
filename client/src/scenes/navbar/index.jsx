@@ -30,11 +30,13 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector((state) => state.user)
+    console.log(user)
     const isNonMobileScreens = useMediaQuery('(min-width: 1000px)')
 
     const theme = useTheme()
     const neutralLight = theme.palette.neutral.light
     const dark = theme.palette.neutral.dark
+    console.log(dark)
     const background = theme.palette.background.default
     const primaryLight = theme.palette.primary.light
     const alt = theme.palette.primary.alt
@@ -63,7 +65,7 @@ const Navbar = () => {
                     {theme.palette.mode === 'dark' ? (
                         <DarkMode sx={{ color: dark, fontSize: '25px' }}/>
                     ) : (
-                        <LightMode sx={{ color: dark, fontSize: '25px' }}/>
+                        <LightMode sx={{ fontSize: '25px' }}/>
                     )}
                 </IconButton>
                 <Message sx={{ fontSize:'25px' }} />
