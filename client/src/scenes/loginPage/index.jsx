@@ -1,4 +1,5 @@
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material'
+import Form from './Form'
 
 const LoginPage = () => {
     const theme = useTheme()
@@ -16,6 +17,7 @@ const LoginPage = () => {
                 Collaborate on projects with friends
             </Typography>
         </Box>
+        <Form />
     </Box>
     )
 }
