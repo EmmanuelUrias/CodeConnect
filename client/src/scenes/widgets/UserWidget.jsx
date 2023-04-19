@@ -69,6 +69,8 @@ const UserWidget = ({ userId, picturePath }) => {
                     </Box>
                 </Box>
 
+                <Divider />
+
                 {/* Third Row */}
                 <Box p='1rem 0'>
                     <FlexBetween mb='0.5rem'>
@@ -80,6 +82,8 @@ const UserWidget = ({ userId, picturePath }) => {
                         <Typography color={main} fontWeight='500'>{impressions}</Typography>
                     </FlexBetween>
                 </Box>
+                
+                <Divider />
 
                 {/* Fourth Row */}
                 <Box p='1rem 0'>
