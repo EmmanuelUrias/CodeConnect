@@ -1,5 +1,5 @@
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined"
-import FavoriteBorderOutlinesIcon from '@mui/icons-material/FavoriteBorderOutlines'
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined"
 import ShareOutlinedIcon from "@mui/icons-material/ShapeLineOutlined"
 import { Box, Divider, IconButton, Typography, useTheme } from '@mui/material'
@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setPost } from 'state'
 import { useNavigate } from "react-router-dom"
 
-const PostWidget = ({ _id, userId, name, description, location, picturePath, userPicturePath, likes, comments }) => {
+const PostWidget = ({ postId, postUserId, name, description, location, picturePath, userPicturePath, likes, comments }) => {
 const [isCommentsOpen, setIsCommentsOpen] = useState(false)
 const dispatch = useDispatch()
 const loggedInUserId = useSelector((state) => state.user._id)
@@ -41,7 +41,7 @@ return (
             {description}
         </Typography>
         {picturePath && (
-            <img width='100%' height='auto' alt={`${firstName}'s post`} style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }} src={`http://localhost:3001/assets/${picturePath}`}/>
+            <img width='100%' height='auto' alt={`${name}'s post`} style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }} src={`http://localhost:3001/assets/${picturePath}`}/>
         )}
         <FlexBetween mt='0.23rem'>
             <FlexBetween gap='0.98rem'>
@@ -50,7 +50,7 @@ return (
                         {isLiked ? (
                             <FavoriteOutlinedIcon sx={{ color: primary }}/>
                         ) : (
-                            <FavoriteBorderOutlinesIcon />
+                            <FavoriteBorderOutlinedIcon />
                         )}
                     </IconButton>
                     <Typography>
