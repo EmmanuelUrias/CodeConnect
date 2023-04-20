@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setPost } from 'state'
 import { useNavigate } from "react-router-dom"
 
-const PostWidget = ({ _id, userId, firstName, lastName, description, location, picturePath, userPicturePath, likes, comments }) => {
+const PostWidget = ({ _id, userId, name, description, location, picturePath, userPicturePath, likes, comments }) => {
 const [isCommentsOpen, setIsCommentsOpen] = useState(false)
 const dispatch = useDispatch()
 const loggedInUserId = useSelector((state) => state.user._id)
@@ -64,7 +64,23 @@ return (
                     <Typography>{comments.length}</Typography>
                 </FlexBetween>
             </FlexBetween>
+            <IconButton>
+                <ShareOutlinedIcon />
+            </IconButton>
         </FlexBetween>
+        {isCommentsOpen && (
+            <Box mt='0.55rem'>
+                {comments.map((comment, index) => (
+                    <Box key={`${name}-${index}`}>
+                        <Divider/>
+                        <Typography sx={{ color: main, m: '0.55rem 0', pl: '1rem' }}>
+                            {comment}
+                        </Typography>
+                    </Box>
+                ))}
+                <Divider/>
+            </Box>
+        )}
     </WidgetWrap>
 )
 
