@@ -45,7 +45,7 @@ const Friends = ({ friendId, name, description, userPicturePath }) => {
                     </Typography>
                 </Box>
             </FlexBetween>
-            <IconButton onClick={() => patchFriend()} sx={{ backgroundColor: primaryLight, p: '0.6rem' }}>
+            <IconButton onClick={() => addAndRemoveFriend()} sx={{ backgroundColor: primaryLight, p: '0.6rem' }}>
                 {isFriends ? (
                     <PersonRemoveOutlinedIcon sx={{ color: primaryDark }}/>
                 ): (
