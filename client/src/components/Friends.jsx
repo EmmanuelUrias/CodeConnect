@@ -5,6 +5,7 @@ import { setFriends } from 'state'
 import FlexBetween from './FlexBetween'
 import UserImg from "./UserImgWidget"
 import PersonRemoveOutlinedIcon from "@mui/icons-material/PersonRemoveOutlined"
+import { useNavigate } from "react-router-dom"
 
 const Friends = ({ friendId, name, description, userPicturePath }) => {
     const { palette } = useTheme()
@@ -47,8 +48,12 @@ const Friends = ({ friendId, name, description, userPicturePath }) => {
             <IconButton onClick={() => patchFriend()} sx={{ backgroundColor: primaryLight, p: '0.6rem' }}>
                 {isFriends ? (
                     <PersonRemoveOutlinedIcon sx={{ color: primaryDark }}/>
-                ): ''}
+                ): (
+                    <PersonAddOutlinedIcon sx={{ color: primaryDark }}/>
+                )}
             </IconButton>
         </FlexBetween>
     )
 }
+
+export default Friends
