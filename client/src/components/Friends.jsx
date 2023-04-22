@@ -21,10 +21,10 @@ const Friends = ({ friendId, name, description, userPicturePath }) => {
     const isFriends = friends.find((friend) => friend._id === friendId)
 
     const addAndRemoveFriend = async () => {
-        const res = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {
+        const res = await fetch(`http://localhost:3002/users/${_id}/${friendId}`, {
             method: 'PATCH',
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `The chosen ${token}`,
                 'Content-Type': 'application/json'
             }
         })

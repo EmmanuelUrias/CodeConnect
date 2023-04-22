@@ -39,8 +39,8 @@ const UserWidget = ({ userId, picturePath }) => {
         getUserData()
     }, [])
 
-    if (isLoading || !user) {
-        return <p>Loading...</p>
+    if (!user) {
+        return null
       }
 
     const { firstName, lastName, location, occupation, viewedProfile, impressions, friends } = user
