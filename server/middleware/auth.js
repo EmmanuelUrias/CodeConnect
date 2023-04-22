@@ -9,11 +9,12 @@ export const verifyToken = async (req, res, next) => {
         }
 
         if (token.startsWith('The chosen ') ){
-            token = token.slice(11, token.length).trimStart()
+            token = token.slice(11, token.length).trimLeft()
         }
 
         const verified = jwt.verify(token, process.env.JWT_SECRET)
         req.user = verified
+        next()
     } catch (err) {
         res.status(500).json({ error: err.message })
     }
