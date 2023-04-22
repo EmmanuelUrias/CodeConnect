@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 
 const UserWidget = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
     const { palette } = useTheme()
     const navigate = useNavigate()
     const token = useSelector((state) => state.token)
@@ -19,22 +20,28 @@ const UserWidget = ({ userId, picturePath }) => {
     const medium = palette.neutral.medium
     const main = palette.neutral.main
 
-    const getUser = async () => {
-        const res = await fetch(`http://localhost:3002/users/${userId}`, {
-            method: 'GET',
+    const getUserData = async () => {
+        try {
+            const res = await fetch(`http://localhost:3002/users/${userId}`, {
+            method: "GET",
             headers: { Authorization: `The chosen ${token}` }
         })
-        const data = res.json()
-        setUser(data)
+        const user = await res.json()
+        setUser(user)
+        
+        } catch (err) {
+            console.log(err)
+        } finally {
+            setIsLoading(false)
+          }
     }
     useEffect(() => { // when you render widget the api call is made once
-        getUser()
-        console.log(getUser())
+        getUserData()
     }, [])
 
-    if (!user) {
-        return null
-    }
+    if (isLoading || !user) {
+        return <p>Loading...</p>
+      }
 
     const { firstName, lastName, location, occupation, viewedProfile, impressions, friends } = user
 

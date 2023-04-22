@@ -74,7 +74,7 @@ const Navbar = () => {
                         <MenuItem value={fullName}>
                             <Typography>{fullName}</Typography>
                         </MenuItem>
-                        <MenuItem onClick={() => dispatch(setLogout)}>Log Out</MenuItem>
+                        <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
                     </Select>
                 </FormControl>
             </FlexBetween>) : ( 

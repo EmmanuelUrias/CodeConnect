@@ -20,6 +20,7 @@ const likeCount = Object.keys(likes).length
 const { palette } = useTheme()
 const primary = palette.primary.main
 const main = palette.neutral.main
+
 const addOrRemoveLikes = async () => {
     const res = await fetch(`http://localhost:3002/posts/${postId}/like`, {
         method: 'PATCH',
