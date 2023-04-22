@@ -12,9 +12,9 @@ const FriendListWidget = ({ userId }) => {
     const token = useSelector((state) => state.token)
     
     const getFriends = async () => {
-        const res = await fetch(`http://localhost:3001/users/${userId}/friends`, {
+        const res = await fetch(`http://localhost:3002/users/${userId}/friends`, {
             method: 'GET',
-            headers : { Authorization: `Bearer ${token}` }
+            headers : { Authorization: `The chosen ${token}` }
         })
         const data = await res.json()
         dispatch(setFriends({ friends: data }))

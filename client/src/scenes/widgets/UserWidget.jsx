@@ -20,15 +20,16 @@ const UserWidget = ({ userId, picturePath }) => {
     const main = palette.neutral.main
 
     const getUser = async () => {
-        const res = await fetch(`http://localhost:3001/users/${userId}`, {
+        const res = await fetch(`http://localhost:3002/users/${userId}`, {
             method: 'GET',
-            headers: { Authorization: `Bearer ${token}` }
+            headers: { Authorization: `The chosen ${token}` }
         })
         const data = res.json()
         setUser(data)
     }
     useEffect(() => { // when you render widget the api call is made once
         getUser()
+        console.log(getUser())
     }, [])
 
     if (!user) {

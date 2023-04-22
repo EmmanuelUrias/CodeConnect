@@ -5,53 +5,54 @@ import PostWidget from './PostWidget'
 
 const PostFeedWidget =({ userId, isProfile = false }) => {
     const dispatch = useDispatch()
-    const posts = useSelector((state) => state.posts)
     const token = useSelector((state) => state.token)
+    const posts = useSelector((state) => state.posts)
 
     const getPosts = async () => {
-        const res = await fetch('http://localhost:3001/posts', {
+        const res = await fetch('http://localhost:3002/posts', {
             method: 'GET',
-            headers: { Authorization: `Bearer ${token}` }
+            headers: { Authorization: `The chosen ${token}` }
         })
         const data = await res.json()
         dispatch(setPosts({ posts: data }))
     }
 
-const getUserPosts = async () => {
-    const res = await fetch(`http://localhost:3001/posts/${userId}/posts`, {
-        method: 'GET',
-        headers: { Authorization: `Bearer ${token}` }
-    })
-    const data = await res.json()
-    dispatch(setPosts({ posts: data }))
-}
-
-useEffect(() => {
-    if (isProfile) {
-        getUserPosts()
-    } else {
-        getPosts()
+    const getUserPosts = async () => {
+        const res = await fetch(`http://localhost:3002/posts/${userId}/posts`, {
+            method: 'GET',
+            headers: { Authorization: `The chosen ${token}` }
+        })
+        const data = await res.json()
+        dispatch(setPosts({ posts: data }))
+        console.log(data)
     }
-}, [])
 
-return (
-    <>
-        {posts.map(({_id, userId, firstName, lastName, description, location, picturePath, userPicturePath, likes, comments}) => (
-            <PostWidget 
-                postId={_id}
-                key={_id}
-                postUserId={userId}
-                firstName={`${firstName} ${lastName}`}
-                description={description}
-                location={location}
-                picturePath={picturePath}
-                userPicturePath={userPicturePath}
-                likes={likes}
-                comments={comments}
-            />
-        ))}
-    </>
-)
-}
+    useEffect(() => {
+        if (isProfile) {
+            getUserPosts()
+        } else {
+            getPosts()
+        }
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-export default PostFeedWidget
+    return (
+        <div>
+            {posts.map(({_id, userId, firstName, lastName, description, location, picturePath, userPicturePath, likes, comments}) => (
+                <PostWidget 
+                    postId={_id}
+                    key={_id}
+                    postUserId={userId}
+                    firstName={`${firstName} ${lastName}`}
+                    description={description}
+                    location={location}
+                    picturePath={picturePath}
+                    userPicturePath={userPicturePath}
+                    likes={likes}
+                    comments={comments}
+                />
+            ))}
+        </div>
+    )
+    }
+
+    export default PostFeedWidget

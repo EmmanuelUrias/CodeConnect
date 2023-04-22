@@ -5,10 +5,12 @@ import UserWidget from "scenes/widgets/UserWidget"
 import MakePostWidget from "scenes/widgets/MakePostWidget"
 import AdWidget from "scenes/widgets/AdWidget"
 import FriendListWidget from "scenes/widgets/FriendsWidget"
+import PostFeedWidget from "scenes/widgets/PostFeedWidget"
 
 const HomePage = () => {
     const isNonMobileScreens = useMediaQuery('(min-width): 1000px')
     const { _id, picturePath } = useSelector((state) => state.user)
+    console.log(_id, picturePath)
 
     return (
     <Box>
@@ -19,7 +21,7 @@ const HomePage = () => {
             </Box>
             <Box flexBasis={isNonMobileScreens ? '43%' : undefined} mt={isNonMobileScreens ? undefined : '2rem'}>
                 <MakePostWidget picturePath={picturePath}/>
-                <MakePostWidget userId={_id}/>
+                <PostFeedWidget userId={_id}/>
             </Box>
             {isNonMobileScreens && (
                 <Box flexBasis='27%'>

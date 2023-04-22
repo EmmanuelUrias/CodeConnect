@@ -1,4 +1,4 @@
-// color design export
+// theme colors
 export const colorTokens = {
     grey: {
       0: "#FFFFFF",
@@ -34,7 +34,8 @@ export const colorTokens = {
     return {
         palette: {
             mode: mode, 
-            ...(mode === 'dark' ? {
+            ...(mode === 'dark' 
+            ? {
             //dark mode color palette
             primary: {
                 dark: colorTokens.primary[200],

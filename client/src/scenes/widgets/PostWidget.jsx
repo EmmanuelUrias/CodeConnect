@@ -9,7 +9,6 @@ import WidgetWrap from "components/WidgetWrap"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setPost } from 'state'
-import { useNavigate } from "react-router-dom"
 
 const PostWidget = ({ postId, postUserId, name, description, location, picturePath, userPicturePath, likes, comments }) => {
 const [isCommentsOpen, setIsCommentsOpen] = useState(false)
@@ -22,10 +21,10 @@ const { palette } = useTheme()
 const primary = palette.primary.main
 const main = palette.neutral.main
 const addOrRemoveLikes = async () => {
-    const res = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const res = await fetch(`http://localhost:3002/posts/${postId}/like`, {
         method: 'PATCH',
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `The chosen ${token}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ userId: loggedInUserId })

@@ -30,13 +30,11 @@ const Navbar = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const user = useSelector((state) => state.user)
-    console.log(user)
     const isNonMobileScreens = useMediaQuery('(min-width: 1000px)')
 
     const theme = useTheme()
     const neutralLight = theme.palette.neutral.light
     const dark = theme.palette.neutral.dark
-    console.log(dark)
     const background = theme.palette.background.default
     const primaryLight = theme.palette.primary.light
     const alt = theme.palette.primary.alt
@@ -61,7 +59,7 @@ const Navbar = () => {
             {/* Desktop Nav */}
             {isNonMobileScreens ? (
             <FlexBetween gap='2rem'>
-                <IconButton onClick={() => dispatch(setMode)}>
+                <IconButton onClick={() => dispatch(setMode())}>
                     {theme.palette.mode === 'dark' ? (
                         <DarkMode sx={{ color: dark, fontSize: '25px' }}/>
                     ) : (
