@@ -24,6 +24,8 @@ const FriendListWidget = ({ userId }) => {
         getFriends()
     }, [])
 
+    console.log(friends)
+
     return (
         <WidgetWrap>
             <Typography color={palette.neutral.dark} variant='h5' fontWeight='500' sx={{ mb: '1.5rem' }}>
@@ -34,7 +36,7 @@ const FriendListWidget = ({ userId }) => {
                     <Friends
                         key={friend._id}
                         friendId={friend._id}
-                        name={`${friend.firstName} ${friend.lastname}`}
+                        name={`${friend.firstName} ${friend.lastName}`}
                         description={friend.occupation}
                         userPicturePath={friend.picturePath}
                     />

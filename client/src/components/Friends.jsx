@@ -7,7 +7,7 @@ import UserImg from "./UserImgWidget"
 import PersonRemoveOutlinedIcon from "@mui/icons-material/PersonRemoveOutlined"
 import { useNavigate } from "react-router-dom"
 
-const Friends = ({ friendId, name, description, userPicturePath }) => {
+const Friends = ({ friendId, name, location, userPicturePath }) => {
     const { palette } = useTheme()
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -37,11 +37,11 @@ const Friends = ({ friendId, name, description, userPicturePath }) => {
             <FlexBetween>
                 <UserImg image={userPicturePath} size='55px'/>
                 <Box onClick={() => { navigate(`profile/${friendId}`); navigate(0) }}> {/* the second navigate rerenders the page to stop the page from not rerendering the page when someone repeadadly clicks on friends */}
-                    <Typography color={main} variant='h5' fontWeight='500' sx={{ '&:hover': { color: palette.primary.light, cursor: 'pointer' }}}>
+                    <Typography color={main} variant='h5' fontWeight='500' sx={{ marginLeft: '8px', '&:hover': { color: palette.primary.light, cursor: 'pointer' }}}>
                         {name}
                     </Typography>
-                    <Typography color={medium} fontSize='0.75rem'>
-                        {description}
+                    <Typography color={medium} fontSize='0.75rem' marginLeft='10px'>
+                        {location}
                     </Typography>
                 </Box>
             </FlexBetween>

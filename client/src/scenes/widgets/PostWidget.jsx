@@ -41,7 +41,7 @@ return (
             {description}
         </Typography>
         {picturePath && (
-            <img width='100%' height='auto' alt={`${name}'s post`} style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }} src={`http://localhost:3001/assets/${picturePath}`}/>
+            <img width='100%' height='auto' alt={`${name}'s post`} style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }} src={`http://localhost:3002/assets/${picturePath}`}/>
         )}
         <FlexBetween mt='0.23rem'>
             <FlexBetween gap='0.98rem'>

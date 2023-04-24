@@ -42,7 +42,7 @@ const PostFeedWidget =({ userId, isProfile = false }) => {
                     postId={_id}
                     key={_id}
                     postUserId={userId}
-                    firstName={`${firstName} ${lastName}`}
+                    name={`${firstName} ${lastName}`}
                     description={description}
                     location={location}
                     picturePath={picturePath}
