@@ -36,7 +36,7 @@ const addOrRemoveLikes = async () => {
 
 return (
     <WidgetWrap m='2rem 0'>
-        <Friends friendId={postUserId} name={name} description={location} userPicturePath={userPicturePath}/>
+        <Friends friendId={postUserId} name={name} location={location} userPicturePath={userPicturePath} sx={{marginLeft: '5px'}}/>
         <Typography color={main} sx={{ mt: '1rem' }}>
             {description}
         </Typography>

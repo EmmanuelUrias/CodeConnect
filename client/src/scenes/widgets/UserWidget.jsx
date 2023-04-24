@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom'
 
 const UserWidget = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
     const { palette } = useTheme()
     const navigate = useNavigate()
     const token = useSelector((state) => state.token)
@@ -31,9 +30,7 @@ const UserWidget = ({ userId, picturePath }) => {
         
         } catch (err) {
             console.log(err)
-        } finally {
-            setIsLoading(false)
-          }
+        }
     }
     useEffect(() => { // when you render widget the api call is made once
         getUserData()

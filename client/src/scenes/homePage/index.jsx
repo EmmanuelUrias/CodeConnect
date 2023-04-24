@@ -8,7 +8,7 @@ import FriendListWidget from "scenes/widgets/FriendsWidget"
 import PostFeedWidget from "scenes/widgets/PostFeedWidget"
 
 const HomePage = () => {
-    const isNonMobileScreens = useMediaQuery('(min-width): 1000px')
+    const isNonMobileScreens = useMediaQuery('(min-width):1000px')
     const { _id, picturePath } = useSelector((state) => state.user)
 
     return (
